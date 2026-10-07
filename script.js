@@ -38,7 +38,7 @@ const productsList = {
   ]
 };
 
-// Control de disponibilidad (guardado en el almacenamiento local)
+// Verificar disponibilidad
 function checkAvailability() {
   const isAvailable = localStorage.getItem('ff_available') !== 'false';
   const statusDot = document.getElementById('statusDot');
@@ -58,7 +58,7 @@ function checkAvailability() {
   }
 }
 
-// Navegación
+// Navegación de menú
 const homeScreen = document.getElementById('homeScreen');
 const diamondsScreen = document.getElementById('diamondsScreen');
 const internetScreen = document.getElementById('internetScreen');
@@ -85,7 +85,7 @@ if (document.getElementById('btnGoDiamonds')) {
   });
 }
 
-// Lógica de Categorías Free Fire
+// Cargar categorías
 const categorySelect = document.getElementById('productCategory');
 const productSelect = document.getElementById('product');
 
@@ -107,7 +107,7 @@ if (categorySelect) {
   categorySelect.addEventListener('change', updateProductOptions);
 }
 
-// Envíos de WhatsApp
+// Enviar pedidos
 if (document.getElementById('buyDiamondsBtn')) {
   document.getElementById('buyDiamondsBtn').addEventListener('click', function() {
     const isAvailable = localStorage.getItem('ff_available') !== 'false';
@@ -144,4 +144,4 @@ if (document.getElementById('buyDiamondsBtn')) {
   });
 
   checkAvailability();
-                                                             }
+}
