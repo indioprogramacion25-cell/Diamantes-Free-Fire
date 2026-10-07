@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda de Free Fire</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card">
+    <h1>🔥 RECARGAS FREE FIRE 🔥</h1>
+    
+    <label for="playerId">ID de Jugador:</label>
+    <input type="number" id="playerId" placeholder="Ingresá tu ID de juego">
+
+    <label for="productCategory">Categoría:</label>
+    <select id="productCategory">
+      <option value="diamantes">💎 Diamantes</option>
+      <option value="pases">🎟️ Pases y Suscripciones</option>
+      <option value="fragmentos">🧩 Fragmentos</option>
+      <option value="cajas">📦 Cajas Evolutivas</option>
+    </select>
+
+    <label for="product">Producto:</label>
+    <select id="product">
+      <!-- Se cargan automáticamente los productos de la categoría -->
+    </select>
+
+    <button id="buyBtn">Pedir por WhatsApp</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
