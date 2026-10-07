@@ -31,7 +31,7 @@ body {
   gap: 15px;
 }
 
-/* OCULTA LAS PANTALLAS INACTIVAS PARA QUE NO SE SULAPEN */
+/* OCULTA PANTALLAS QUE NO SE DEBEN VER */
 .hidden {
   display: none !important;
 }
@@ -182,7 +182,7 @@ input, select {
   color: #fff;
 }
 
-/* Indicador de Estado y alertas */
+/* Indicador de Estado (Círculo rojo / verde) */
 .status-dot {
   display: inline-block;
   width: 10px;
@@ -214,4 +214,4 @@ input, select {
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
-  }
+}
