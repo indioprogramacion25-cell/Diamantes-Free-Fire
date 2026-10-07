@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administración</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="card">
+      <div class="badge">ADMINISTRACIÓN</div>
+      <h1 class="glitch-title">ESTADO DE TIENDA</h1>
+      <p class="subtitle">Activar o desactivar ventas de Free Fire</p>
+
+      <div class="form-group" style="margin-top: 15px;">
+        <label>ESTADO DE RECARGAS FREE FIRE</label>
+        <select id="adminStatusSelect">
+          <option value="true">🟢 DISPONIBLE (Círculo verde)</option>
+          <option value="false">🔴 NO DISPONIBLE (Círculo rojo)</option>
+        </select>
+      </div>
+
+      <button class="action-btn btn-ws-net" id="saveStatusBtn">
+        💾 GUARDAR CAMBIOS
+      </button>
+
+      <a href="index.html" class="back-btn" style="text-align: center; text-decoration: none; margin-top: 10px;">
+        ⬅️ Volver a la Tienda
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const statusSelect = document.getElementById('adminStatusSelect');
+    const saveBtn = document.getElementById('saveStatusBtn');
+
+    // Cargar estado actual
+    const currentStatus = localStorage.getItem('ff_available') !== 'false';
+    statusSelect.value = currentStatus ? "true" : "false";
+
+    saveBtn.addEventListener('click', () => {
+      localStorage.setItem('ff_available', statusSelect.value);
+      alert('¡Estado guardado correctamente!');
+    });
+  </script>
+</body>
+</html>
