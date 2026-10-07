@@ -2,143 +2,105 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 body {
-  background-color: #080b10;
+  background-color: #0b0f19;
   color: #ffffff;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 15px;
-  position: relative;
-  overflow-x: hidden;
 }
 
 .bg-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: 
-    radial-gradient(circle at 10% 20%, rgba(255, 70, 85, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(0, 230, 255, 0.15) 0%, transparent 40%);
-  pointer-events: none;
-  z-index: 0;
+  display: none;
 }
 
 .container {
   width: 100%;
-  max-width: 420px;
-  position: relative;
-  z-index: 1;
+  max-width: 400px;
 }
 
 .card {
-  background: rgba(18, 24, 38, 0.85);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  padding: 25px 20px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  background: #161f30;
+  border: 1px solid #232f48;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 15px;
 }
 
+/* Oculta las pantallas que no deben verse */
 .hidden {
   display: none !important;
 }
 
-/* Encabezados y Tipografía Gamer */
 .badge {
   align-self: center;
-  background: linear-gradient(90deg, #ff4655, #ff7300);
-  font-family: 'Teko', sans-serif;
-  font-size: 1rem;
-  letter-spacing: 2px;
-  padding: 2px 14px;
-  border-radius: 20px;
+  background: #ff4655;
+  color: #fff;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+  border-radius: 12px;
   font-weight: bold;
 }
 
 .glitch-title {
-  font-family: 'Teko', sans-serif;
-  font-size: 2.8rem;
+  font-size: 1.8rem;
   text-align: center;
-  letter-spacing: 2px;
-  line-height: 1;
-  background: linear-gradient(180deg, #ffffff 0%, #88a0c0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff;
 }
 
 .subtitle {
   text-align: center;
   color: #94a3b8;
   font-size: 0.85rem;
-  margin-top: -10px;
+  margin-top: -5px;
 }
 
 .header-section {
   display: flex;
   align-items: center;
-  gap: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding-bottom: 12px;
+  gap: 8px;
+  border-bottom: 1px solid #232f48;
+  padding-bottom: 10px;
 }
 
 .header-section h1 {
-  font-family: 'Teko', sans-serif;
-  font-size: 2.2rem;
-  letter-spacing: 1px;
-  line-height: 1;
+  font-size: 1.3rem;
 }
 
 .icon-title {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
 }
 
-/* Menú Principal */
 .menu-grid {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin-top: 10px;
+  gap: 12px;
 }
 
 .menu-card {
-  background: rgba(30, 41, 59, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 16px;
-  border-radius: 14px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  padding: 14px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
   cursor: pointer;
   text-align: left;
-  transition: all 0.2s ease;
-}
-
-.menu-card:active {
-  transform: scale(0.98);
-}
-
-.btn-ff:hover, .btn-ff:active {
-  border-color: #ff4655;
-  box-shadow: 0 0 15px rgba(255, 70, 85, 0.3);
-}
-
-.btn-net:hover, .btn-net:active {
-  border-color: #00e6ff;
-  box-shadow: 0 0 15px rgba(0, 230, 255, 0.3);
+  width: 100%;
 }
 
 .menu-card .icon {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .menu-info {
@@ -146,9 +108,7 @@ body {
 }
 
 .menu-info h2 {
-  font-family: 'Teko', sans-serif;
-  font-size: 1.5rem;
-  line-height: 1;
+  font-size: 1.1rem;
   color: #fff;
 }
 
@@ -159,10 +119,9 @@ body {
 
 .arrow {
   color: #64748b;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
-/* Formularios */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -170,49 +129,42 @@ body {
 }
 
 label {
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: 0.8rem;
+  font-weight: bold;
   color: #38bdf8;
-  letter-spacing: 1px;
 }
 
 input, select {
   width: 100%;
-  padding: 14px;
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
+  padding: 12px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
   color: #fff;
   font-size: 0.95rem;
   outline: none;
 }
 
-input:focus, select:focus {
-  border-color: #38bdf8;
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
-}
-
-/* Botones */
 .back-btn {
-  background: transparent;
+  background: #1e293b;
   color: #94a3b8;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 6px 12px;
+  border: 1px solid #334155;
+  padding: 8px 12px;
   border-radius: 8px;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   align-self: flex-start;
   cursor: pointer;
+  width: auto;
 }
 
 .action-btn {
   width: 100%;
-  padding: 15px;
+  padding: 14px;
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 1px;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -222,17 +174,11 @@ input:focus, select:focus {
 }
 
 .btn-ws-ff {
-  background: linear-gradient(90deg, #ff4655, #ff7300);
+  background: #ff4655;
   color: #fff;
-  box-shadow: 0 4px 15px rgba(255, 70, 85, 0.4);
 }
 
 .btn-ws-net {
-  background: linear-gradient(90deg, #00c853, #00e6ff);
-  color: #000;
-  box-shadow: 0 4px 15px rgba(0, 230, 255, 0.4);
-}
-
-.action-btn:active {
-  transform: scale(0.98);
+  background: #22c55e;
+  color: #fff;
 }
