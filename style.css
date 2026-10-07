@@ -1,52 +1,238 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #0f172a;
-  color: #ffffff;
+* {
+  box-sizing: border-box;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
-header {
-  padding: 20px;
-  text-align: center;
+body {
+  background-color: #080b10;
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(255, 70, 85, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(0, 230, 255, 0.15) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .container {
-  width: 90%;
-  max-width: 400px;
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  z-index: 1;
 }
 
 .card {
-  background-color: #1e293b;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  background: rgba(18, 24, 38, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 25px 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Encabezados y Tipografía Gamer */
+.badge {
+  align-self: center;
+  background: linear-gradient(90deg, #ff4655, #ff7300);
+  font-family: 'Teko', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  padding: 2px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.glitch-title {
+  font-family: 'Teko', sans-serif;
+  font-size: 2.8rem;
+  text-align: center;
+  letter-spacing: 2px;
+  line-height: 1;
+  background: linear-gradient(180deg, #ffffff 0%, #88a0c0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin-top: -10px;
+}
+
+.header-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 12px;
+}
+
+.header-section h1 {
+  font-family: 'Teko', sans-serif;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.icon-title {
+  font-size: 1.8rem;
+}
+
+/* Menú Principal */
+.menu-grid {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  margin-top: 10px;
 }
 
-input, select, button {
-  padding: 10px;
-  border-radius: 6px;
-  border: none;
-  font-size: 16px;
+.menu-card {
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
 }
 
-input, select {
-  background-color: #334155;
+.menu-card:active {
+  transform: scale(0.98);
+}
+
+.btn-ff:hover, .btn-ff:active {
+  border-color: #ff4655;
+  box-shadow: 0 0 15px rgba(255, 70, 85, 0.3);
+}
+
+.btn-net:hover, .btn-net:active {
+  border-color: #00e6ff;
+  box-shadow: 0 0 15px rgba(0, 230, 255, 0.3);
+}
+
+.menu-card .icon {
+  font-size: 2rem;
+}
+
+.menu-info {
+  flex: 1;
+}
+
+.menu-info h2 {
+  font-family: 'Teko', sans-serif;
+  font-size: 1.5rem;
+  line-height: 1;
   color: #fff;
 }
 
-button {
-  background-color: #16a34a;
-  color: white;
-  font-weight: bold;
+.menu-info span {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.arrow {
+  color: #64748b;
+  font-size: 1.2rem;
+}
+
+/* Formularios */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #38bdf8;
+  letter-spacing: 1px;
+}
+
+input, select {
+  width: 100%;
+  padding: 14px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+input:focus, select:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+}
+
+/* Botones */
+.back-btn {
+  background: transparent;
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  align-self: flex-start;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #15803d;
+.action-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.btn-ws-ff {
+  background: linear-gradient(90deg, #ff4655, #ff7300);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(255, 70, 85, 0.4);
+}
+
+.btn-ws-net {
+  background: linear-gradient(90deg, #00c853, #00e6ff);
+  color: #000;
+  box-shadow: 0 4px 15px rgba(0, 230, 255, 0.4);
+}
+
+.action-btn:active {
+  transform: scale(0.98);
 }

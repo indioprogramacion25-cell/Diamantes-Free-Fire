@@ -38,6 +38,32 @@ const productsList = {
   ]
 };
 
+// Elementos de navegación
+const homeScreen = document.getElementById('homeScreen');
+const diamondsScreen = document.getElementById('diamondsScreen');
+const internetScreen = document.getElementById('internetScreen');
+
+document.getElementById('btnGoDiamonds').addEventListener('click', () => {
+  homeScreen.classList.add('hidden');
+  diamondsScreen.classList.remove('hidden');
+});
+
+document.getElementById('btnGoInternet').addEventListener('click', () => {
+  homeScreen.classList.add('hidden');
+  internetScreen.classList.remove('hidden');
+});
+
+document.getElementById('btnBackFromDiamonds').addEventListener('click', () => {
+  diamondsScreen.classList.add('hidden');
+  homeScreen.classList.remove('hidden');
+});
+
+document.getElementById('btnBackFromInternet').addEventListener('click', () => {
+  internetScreen.classList.add('hidden');
+  homeScreen.classList.remove('hidden');
+});
+
+// Lógica de Categorías Free Fire
 const categorySelect = document.getElementById('productCategory');
 const productSelect = document.getElementById('product');
 
@@ -54,10 +80,12 @@ function updateProductOptions() {
 }
 
 updateProductOptions();
-
 categorySelect.addEventListener('change', updateProductOptions);
 
-document.getElementById('buyBtn').addEventListener('click', function() {
+// Pedidos por WhatsApp
+const phone = "5492644762825";
+
+document.getElementById('buyDiamondsBtn').addEventListener('click', function() {
   const id = document.getElementById('playerId').value.trim();
   const selectedProduct = productSelect.value;
 
@@ -66,9 +94,19 @@ document.getElementById('buyBtn').addEventListener('click', function() {
     return;
   }
 
-  const phone = "5492644762825";
   const message = `¡Hola! Quiero comprar el siguiente producto: ${selectedProduct}. Mi ID de Free Fire es: ${id}`;
-  const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+});
 
-  window.open(url, '_blank');
+document.getElementById('buyInternetBtn').addEventListener('click', function() {
+  const name = document.getElementById('clientName').value.trim();
+  const selectedPlan = document.getElementById('internetProduct').value;
+
+  if (!name) {
+    alert("Por favor, ingresá tu nombre.");
+    return;
+  }
+
+  const message = `¡Hola! Quiero contratar el servicio de: ${selectedPlan}. Mi nombre es: ${name}`;
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
 });

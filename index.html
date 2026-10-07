@@ -3,31 +3,107 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tienda de Free Fire</title>
+  <title>Tienda Virtual - Free Fire & Internet</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <div class="card">
-    <h1>🔥 RECARGAS FREE FIRE 🔥</h1>
+  <div class="bg-overlay"></div>
+
+  <div class="container">
     
-    <label for="playerId">ID de Jugador:</label>
-    <input type="number" id="playerId" placeholder="Ingresá tu ID de juego">
+    <!-- MENÚ PRINCIPAL -->
+    <div class="card card-menu" id="homeScreen">
+      <div class="badge">OFICIAL</div>
+      <h1 class="glitch-title">TIENDA VIRTUAL</h1>
+      <p class="subtitle">Elegí el servicio que querés contratar:</p>
+      
+      <div class="menu-grid">
+        <button class="menu-card btn-ff" id="btnGoDiamonds">
+          <div class="icon">🔥</div>
+          <div class="menu-info">
+            <h2>FREE FIRE</h2>
+            <span>Diamantes, Pases y Cajas</span>
+          </div>
+          <div class="arrow">➔</div>
+        </button>
 
-    <label for="productCategory">Categoría:</label>
-    <select id="productCategory">
-      <option value="diamantes">💎 Diamantes</option>
-      <option value="pases">🎟️ Pases y Suscripciones</option>
-      <option value="fragmentos">🧩 Fragmentos</option>
-      <option value="cajas">📦 Cajas Evolutivas</option>
-    </select>
+        <button class="menu-card btn-net" id="btnGoInternet">
+          <div class="icon">⚡</div>
+          <div class="menu-info">
+            <h2>INTERNET ILIMITADO</h2>
+            <span>Conexión de alta velocidad</span>
+          </div>
+          <div class="arrow">➔</div>
+        </button>
+      </div>
+    </div>
 
-    <label for="product">Producto:</label>
-    <select id="product">
-      <!-- Se cargan automáticamente los productos de la categoría -->
-    </select>
+    <!-- SECCIÓN 1: FREE FIRE -->
+    <div class="card hidden" id="diamondsScreen">
+      <button class="back-btn" id="btnBackFromDiamonds">⬅️ Volver al menú</button>
+      
+      <div class="header-section">
+        <span class="icon-title">🔥</span>
+        <h1>RECARGAS FREE FIRE</h1>
+      </div>
+      
+      <div class="form-group">
+        <label for="playerId">ID DE JUGADOR</label>
+        <input type="number" id="playerId" placeholder="Ej: 123456789">
+      </div>
 
-    <button id="buyBtn">Pedir por WhatsApp</button>
+      <div class="form-group">
+        <label for="productCategory">CATEGORÍA</label>
+        <select id="productCategory">
+          <option value="diamantes">💎 Diamantes</option>
+          <option value="pases">🎟️ Pases y Suscripciones</option>
+          <option value="fragmentos">🧩 Fragmentos</option>
+          <option value="cajas">📦 Cajas Evolutivas</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="product">PRODUCTO</label>
+        <select id="product">
+          <!-- Carga dinámicamente -->
+        </select>
+      </div>
+
+      <button class="action-btn btn-ws-ff" id="buyDiamondsBtn">
+        <span class="ws-icon">💬</span> pedir por whatsapp
+      </button>
+    </div>
+
+    <!-- SECCIÓN 2: INTERNET ILIMITADO -->
+    <div class="card hidden" id="internetScreen">
+      <button class="back-btn" id="btnBackFromInternet">⬅️ Volver al menú</button>
+      
+      <div class="header-section">
+        <span class="icon-title">⚡</span>
+        <h1>INTERNET ILIMITADO</h1>
+      </div>
+
+      <div class="form-group">
+        <label for="clientName">NOMBRE O USUARIO</label>
+        <input type="text" id="clientName" placeholder="Ingresá tu nombre completo">
+      </div>
+
+      <div class="form-group">
+        <label for="internetProduct">PLAN DISPONIBLE</label>
+        <select id="internetProduct">
+          <option value="Internet Ilimitado - $7.000 ARS">🌐 Internet Ilimitado - $7.000 ARS</option>
+        </select>
+      </div>
+
+      <button class="action-btn btn-ws-net" id="buyInternetBtn">
+        <span class="ws-icon">💬</span> pedir por whatsapp
+      </button>
+    </div>
+
   </div>
 
   <script src="script.js"></script>
