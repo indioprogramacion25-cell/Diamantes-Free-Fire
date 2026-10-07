@@ -38,36 +38,59 @@ const productsList = {
   ]
 };
 
-// Elementos de navegación
+// Control de disponibilidad (guardado en el almacenamiento local)
+function checkAvailability() {
+  const isAvailable = localStorage.getItem('ff_available') !== 'false';
+  const statusDot = document.getElementById('statusDot');
+  const buyBtn = document.getElementById('buyDiamondsBtn');
+  const banner = document.getElementById('disabledBanner');
+
+  if (statusDot) {
+    if (isAvailable) {
+      statusDot.className = 'status-dot dot-green';
+      if (buyBtn) buyBtn.disabled = false;
+      if (banner) banner.classList.add('hidden');
+    } else {
+      statusDot.className = 'status-dot dot-red';
+      if (buyBtn) buyBtn.disabled = true;
+      if (banner) banner.classList.remove('hidden');
+    }
+  }
+}
+
+// Navegación
 const homeScreen = document.getElementById('homeScreen');
 const diamondsScreen = document.getElementById('diamondsScreen');
 const internetScreen = document.getElementById('internetScreen');
 
-document.getElementById('btnGoDiamonds').addEventListener('click', () => {
-  homeScreen.classList.add('hidden');
-  diamondsScreen.classList.remove('hidden');
-});
+if (document.getElementById('btnGoDiamonds')) {
+  document.getElementById('btnGoDiamonds').addEventListener('click', () => {
+    homeScreen.classList.add('hidden');
+    diamondsScreen.classList.remove('hidden');
+  });
 
-document.getElementById('btnGoInternet').addEventListener('click', () => {
-  homeScreen.classList.add('hidden');
-  internetScreen.classList.remove('hidden');
-});
+  document.getElementById('btnGoInternet').addEventListener('click', () => {
+    homeScreen.classList.add('hidden');
+    internetScreen.classList.remove('hidden');
+  });
 
-document.getElementById('btnBackFromDiamonds').addEventListener('click', () => {
-  diamondsScreen.classList.add('hidden');
-  homeScreen.classList.remove('hidden');
-});
+  document.getElementById('btnBackFromDiamonds').addEventListener('click', () => {
+    diamondsScreen.classList.add('hidden');
+    homeScreen.classList.remove('hidden');
+  });
 
-document.getElementById('btnBackFromInternet').addEventListener('click', () => {
-  internetScreen.classList.add('hidden');
-  homeScreen.classList.remove('hidden');
-});
+  document.getElementById('btnBackFromInternet').addEventListener('click', () => {
+    internetScreen.classList.add('hidden');
+    homeScreen.classList.remove('hidden');
+  });
+}
 
 // Lógica de Categorías Free Fire
 const categorySelect = document.getElementById('productCategory');
 const productSelect = document.getElementById('product');
 
 function updateProductOptions() {
+  if (!categorySelect || !productSelect) return;
   const selectedCat = categorySelect.value;
   productSelect.innerHTML = '';
 
@@ -79,34 +102,46 @@ function updateProductOptions() {
   });
 }
 
-updateProductOptions();
-categorySelect.addEventListener('change', updateProductOptions);
+if (categorySelect) {
+  updateProductOptions();
+  categorySelect.addEventListener('change', updateProductOptions);
+}
 
-// Pedidos por WhatsApp
-const phone = "5492644762825";
+// Envíos de WhatsApp
+if (document.getElementById('buyDiamondsBtn')) {
+  document.getElementById('buyDiamondsBtn').addEventListener('click', function() {
+    const isAvailable = localStorage.getItem('ff_available') !== 'false';
+    if (!isAvailable) {
+      alert("Las recargas de Free Fire no están disponibles en este momento.");
+      return;
+    }
 
-document.getElementById('buyDiamondsBtn').addEventListener('click', function() {
-  const id = document.getElementById('playerId').value.trim();
-  const selectedProduct = productSelect.value;
+    const id = document.getElementById('playerId').value.trim();
+    const selectedProduct = productSelect.value;
+    const phone = document.getElementById('sellerSelect').value;
 
-  if (!id) {
-    alert("Por favor, ingresá tu ID de jugador.");
-    return;
-  }
+    if (!id) {
+      alert("Por favor, ingresá tu ID de jugador.");
+      return;
+    }
 
-  const message = `¡Hola! Quiero comprar el siguiente producto: ${selectedProduct}. Mi ID de Free Fire es: ${id}`;
-  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
-});
+    const message = `¡Hola! Quiero comprar el siguiente producto: ${selectedProduct}. Mi ID de Free Fire es: ${id}`;
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+  });
 
-document.getElementById('buyInternetBtn').addEventListener('click', function() {
-  const name = document.getElementById('clientName').value.trim();
-  const selectedPlan = document.getElementById('internetProduct').value;
+  document.getElementById('buyInternetBtn').addEventListener('click', function() {
+    const name = document.getElementById('clientName').value.trim();
+    const selectedPlan = document.getElementById('internetProduct').value;
+    const phone = document.getElementById('sellerSelectNet').value;
 
-  if (!name) {
-    alert("Por favor, ingresá tu nombre.");
-    return;
-  }
+    if (!name) {
+      alert("Por favor, ingresá tu nombre.");
+      return;
+    }
 
-  const message = `¡Hola! Quiero contratar el servicio de: ${selectedPlan}. Mi nombre es: ${name}`;
-  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
-});
+    const message = `¡Hola! Quiero contratar el servicio de: ${selectedPlan}. Mi nombre es: ${name}`;
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+  });
+
+  checkAvailability();
+                                                             }
