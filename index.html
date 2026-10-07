@@ -5,33 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tienda Virtual - Free Fire & Internet</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <div class="bg-overlay"></div>
 
   <div class="container">
     
     <!-- MENÚ PRINCIPAL -->
-    <div class="card card-menu" id="homeScreen">
+    <div class="card" id="homeScreen">
       <div class="badge">OFICIAL</div>
       <h1 class="glitch-title">TIENDA VIRTUAL</h1>
       <p class="subtitle">Elegí el servicio que querés contratar:</p>
       
       <div class="menu-grid">
-        <button class="menu-card btn-ff" id="btnGoDiamonds">
+        <button class="menu-card" id="btnGoDiamonds">
           <div class="icon">🔥</div>
           <div class="menu-info">
-            <h2>FREE FIRE</h2>
-            <span>Diamantes, Pases y Cajas</span>
+            <h2>FREE FIRE <span id="statusDot" class="status-dot dot-green" title="Estado de recargas"></span></h2>
+            <span id="statusText">Diamantes, Pases y Cajas</span>
           </div>
           <div class="arrow">➔</div>
         </button>
 
-        <button class="menu-card btn-net" id="btnGoInternet">
+        <button class="menu-card" id="btnGoInternet">
           <div class="icon">⚡</div>
           <div class="menu-info">
             <h2>INTERNET ILIMITADO</h2>
@@ -49,6 +44,11 @@
       <div class="header-section">
         <span class="icon-title">🔥</span>
         <h1>RECARGAS FREE FIRE</h1>
+      </div>
+
+      <!-- Banner si está deshabilitado -->
+      <div id="disabledBanner" class="alert-banner hidden">
+        🔴 Las recargas están temporalmente deshabilitadas.
       </div>
       
       <div class="form-group">
@@ -69,12 +69,20 @@
       <div class="form-group">
         <label for="product">PRODUCTO</label>
         <select id="product">
-          <!-- Carga dinámicamente -->
+          <!-- Se carga dinámicamente -->
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="sellerSelect">ELEGIR VENDEDOR (WHATSAPP)</label>
+        <select id="sellerSelect">
+          <option value="5492644762825">Vendedor 1 (+54 9 264 476-2825)</option>
+          <option value="5492640000000">Vendedor 2 (Escribí acá el otro número)</option>
         </select>
       </div>
 
       <button class="action-btn btn-ws-ff" id="buyDiamondsBtn">
-        <span class="ws-icon">💬</span> pedir por whatsapp
+        💬 Pedir por WhatsApp
       </button>
     </div>
 
@@ -99,8 +107,16 @@
         </select>
       </div>
 
+      <div class="form-group">
+        <label for="sellerSelectNet">ELEGIR VENDEDOR (WHATSAPP)</label>
+        <select id="sellerSelectNet">
+          <option value="5492644762825">Vendedor 1 (+54 9 264 476-2825)</option>
+          <option value="5492646255995">Vendedor 2 (Escribí acá el otro número)</option>
+        </select>
+      </div>
+
       <button class="action-btn btn-ws-net" id="buyInternetBtn">
-        <span class="ws-icon">💬</span> pedir por whatsapp
+        💬 Pedir por WhatsApp
       </button>
     </div>
 
